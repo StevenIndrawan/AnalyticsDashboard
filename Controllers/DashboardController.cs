@@ -10,7 +10,6 @@ namespace AnalyticsDashboard.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
-
             return View();
         }
     }

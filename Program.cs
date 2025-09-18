@@ -1,13 +1,12 @@
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddSession(); // 👈 enable session
+builder.Services.AddSession();
 
-// 👇 ini penting supaya JSON tidak otomatis camelCase
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
-        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+        options.JsonSerializerOptions.PropertyNamingPolicy = null; // PascalCase
     });
 
 var app = builder.Build();
@@ -20,15 +19,13 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
-app.UseSession(); // 👈 tambahkan ini
-
 app.UseRouting();
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Account}/{action=Login}/{id?}"); // 👈 default ke login
+    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
 
 app.MapControllers();
 

@@ -28,3 +28,4 @@ C:\Steven\Source\AnalyticsDashboard\obj\Debug\net8.0\refint\AnalyticsDashboard.d
 C:\Steven\Source\AnalyticsDashboard\obj\Debug\net8.0\AnalyticsDashboard.pdb
 C:\Steven\Source\AnalyticsDashboard\obj\Debug\net8.0\AnalyticsDashboard.genruntimeconfig.cache
 C:\Steven\Source\AnalyticsDashboard\obj\Debug\net8.0\ref\AnalyticsDashboard.dll
+C:\Steven\Source\AnalyticsDashboard\obj\Debug\net8.0\AnalyticsDashboard.sourcelink.json

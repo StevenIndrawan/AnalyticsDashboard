@@ -11,7 +11,7 @@ namespace AnalyticsDashboard.Controllers
         [HttpGet]
         public IActionResult GetTraffic()
         {
-            var dates = Enumerable.Range(0, 7)
+            var dates = Enumerable.Range(0, 14)
                 .Select(i => DateTime.Now.Date.AddDays(-i))
                 .Reverse()
                 .ToList();
@@ -27,10 +27,10 @@ namespace AnalyticsDashboard.Controllers
 
             var details = new List<object>
             {
-                new { SourceDomain = "VIN", LocalIPs = _rnd.Next(80000,120000), OtherIPs = _rnd.Next(30000,50000), TotalClicks = _rnd.Next(100000,150000), UniqueClicks = _rnd.Next(50000,80000) },
-                new { SourceDomain = "LO", LocalIPs = _rnd.Next(2000,6000), OtherIPs = _rnd.Next(1500,4000), TotalClicks = _rnd.Next(4000,8000), UniqueClicks = _rnd.Next(2500,5000) },
-                new { SourceDomain = "SHD", LocalIPs = _rnd.Next(15000,25000), OtherIPs = _rnd.Next(10000,15000), TotalClicks = _rnd.Next(30000,40000), UniqueClicks = _rnd.Next(20000,30000) },
-                new { SourceDomain = "UNITVIDEOS", LocalIPs = _rnd.Next(2500,4000), OtherIPs = _rnd.Next(700,1500), TotalClicks = _rnd.Next(4000,6000), UniqueClicks = _rnd.Next(2000,4000) }
+                new { SourceDomain = "google", LocalIPs = _rnd.Next(5000,10000), OtherIPs = _rnd.Next(3000,8000), TotalClicks = _rnd.Next(20000,30000), UniqueClicks = _rnd.Next(10000,20000) },
+                new { SourceDomain = "bing", LocalIPs = _rnd.Next(2000,5000), OtherIPs = _rnd.Next(1000,3000), TotalClicks = _rnd.Next(5000,10000), UniqueClicks = _rnd.Next(2500,6000) },
+                new { SourceDomain = "direct", LocalIPs = _rnd.Next(1000,3000), OtherIPs = _rnd.Next(500,2000), TotalClicks = _rnd.Next(3000,7000), UniqueClicks = _rnd.Next(1500,4000) },
+                new { SourceDomain = "yahoo", LocalIPs = _rnd.Next(500,2000), OtherIPs = _rnd.Next(300,1000), TotalClicks = _rnd.Next(2000,5000), UniqueClicks = _rnd.Next(1000,2000) }
             };
 
             return Ok(new { Summary = summary, Details = details });
