@@ -6,10 +6,16 @@ namespace AnalyticsDashboard.Controllers
     {
         public IActionResult Index()
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString("User")))
+            // Jika belum login → redirect ke login
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Username")))
             {
                 return RedirectToAction("Login", "Account");
             }
+
+            // Simpan username ke ViewBag supaya bisa dipakai di view
+            ViewBag.Username = HttpContext.Session.GetString("Username");
+            ViewBag.Role = HttpContext.Session.GetString("Role");
+
             return View();
         }
     }
